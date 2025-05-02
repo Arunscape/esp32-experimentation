@@ -1,3 +1,6 @@
 [workspace]
+members = [
+    "backend",
+    "embedded",
+]
 resolver = "2"
-members = ["backend", "embedded"]

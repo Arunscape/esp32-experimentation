@@ -5,7 +5,7 @@ edition = "2024"
 
 [dependencies]
 axum = { version = "*", features = ["http2", "macros", "multipart", "ws"] }
-tokio = { version = "1.0", features = ["full"] }
+tokio = { version = "1.44", features = ["full"] }
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 tower-http = { version = "0.6", features = ["timeout", "trace"] }
 dotenvy = { git = "https://github.com/allan2/dotenvy" , features = ["macros"] } 
