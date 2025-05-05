@@ -1,6 +1,6 @@
 {
   "name": "embedded",
-  // Select between image and build propieties to pull or build the image.
+  // Select between image and build properties to pull or build the image.
   // "image": "docker.io/espressif/idf-rust:esp32c6_latest",
   "build": {
     "dockerfile": "Dockerfile",
@@ -10,11 +10,6 @@
       "ESP_BOARD": "esp32c6"
     }
   },
-  // https://github.com/serialport/serialport-rs/issues/153
-  "runArgs": [
-    "--mount",
-    "type=bind,source=/run/udev,target=/run/udev,readonly"
-  ],
   "customizations": {
     "vscode": {
       "settings": {
@@ -45,8 +40,8 @@
     }
   },
   "forwardPorts": [
-    3333,
-    8000
+    8000,
+    3333
   ],
   "workspaceMount": "source=${localWorkspaceFolder},target=/home/esp/embedded,type=bind,consistency=cached",
   "workspaceFolder": "/home/esp/embedded"

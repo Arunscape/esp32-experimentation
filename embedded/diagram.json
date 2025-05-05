@@ -1,7 +1,6 @@
 {
     "version": 1,
     "editor": "wokwi",
-    "author": "Arunscape <8227297+Arunscape@users.noreply.github.com>",
     "parts": [
         {
             "type": "board-esp32-c6-devkitc-1",

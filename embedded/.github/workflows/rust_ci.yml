@@ -2,8 +2,6 @@ name: Continuous Integration
 
 on:
   push:
-    branches:
-      - main
     paths-ignore:
       - "**/README.md"
   pull_request:
@@ -26,18 +24,17 @@ jobs:
           - command: fmt
             args: --all -- --check --color always
           - command: clippy
-            args: --all-targets --all-features --workspace -- -D warnings
+            args: --all-features --workspace -- -D warnings
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@v1
         with:
-          toolchain: nightly
-          components: rust-src rustfmt clippy
+          target: riscv32imac-unknown-none-elf
+          toolchain: stable
+          components: rust-src, rustfmt, clippy
       - name: Enable caching
         uses: Swatinem/rust-cache@v2
-      - name: Install ldproxy
-        run: cargo install ldproxy
       - name: Run command
         run: cargo ${{ matrix.action.command }} ${{ matrix.action.args }}
