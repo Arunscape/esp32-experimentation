@@ -21,8 +21,8 @@
         "files.watcherExclude": {
           "**/target/**": true
         },
-        "rust-analyzer.checkOnSave.command": "clippy",
-        "rust-analyzer.checkOnSave.allTargets": false,
+        "rust-analyzer.cargo.allTargets": false,
+        "rust-analyzer.cargo.target": "riscv32imac-unknown-none-elf",
         "[rust]": {
           "editor.defaultFormatter": "rust-lang.rust-analyzer"
         }
@@ -30,18 +30,20 @@
       "extensions": [
         "rust-lang.rust-analyzer",
         "tamasfe.even-better-toml",
-        "serayuzgur.crates",
-        "mutantdino.resourcemonitor",
-        "yzhang.markdown-all-in-one",
-        "ms-vscode.cpptools",
-        "actboy168.tasks",
-        "Wokwi.wokwi-vscode"
+        "Wokwi.wokwi-vscode",
+        "fill-labs.dependi"
       ]
     }
   },
   "forwardPorts": [
     8000,
     3333
+  ],
+  // This only works for Linux and requires updating the `device` field
+  "runArgs": [
+    "--privileged",
+    "--device=/dev/ttyACM0",
+    "--group-add=dialout"
   ],
   "workspaceMount": "source=${localWorkspaceFolder},target=/home/esp/embedded,type=bind,consistency=cached",
   "workspaceFolder": "/home/esp/embedded"
