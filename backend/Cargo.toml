@@ -11,4 +11,8 @@ tower-http = { version = "0.6", features = ["timeout", "trace"] }
 dotenvy = { git = "https://github.com/allan2/dotenvy" , features = ["macros"] } 
 axum-response-cache = "0.3.0"
 yahoo_finance_api = "3.0.0"
+futures = { version = "0.3.31", features = ["unstable"] }
+rand = { version = "0.9.1", features = ["nightly"] }
+rand_distr = "0.5.1"
+tokio-stream = "0.1.17"
 
